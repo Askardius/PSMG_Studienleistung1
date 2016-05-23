@@ -2,18 +2,11 @@
 
 public class PlayerMove : MonoBehaviour
 {
-    public int m_PlayerNumber = 1;              // Ever used?
-    public float m_Speed = 12f;                 // How fast the tank moves forward and back.
-    public float m_TurnSpeed = 180f;            // How fast the tank turns in degrees per second.
-    public float m_PitchRange = 0.2f;           // The amount by which the pitch of the engine noises can vary.
 
 
     private string m_MovementAxisName;          // The name of the input axis for moving forward and back.
     private string m_TurnAxisName;              // The name of the input axis for turning.
     private Rigidbody m_Rigidbody;              // Reference used to move the tank.
-    private float m_MovementInputValue;         // The current value of the movement input.
-    private float m_TurnInputValue;             // The current value of the turn input.
- 
 
 
     private void Awake()
@@ -27,12 +20,6 @@ public class PlayerMove : MonoBehaviour
     {
         // When the tank is turned on, make sure it's not kinematic.
         m_Rigidbody.isKinematic = false;
-
-        // Also reset the input values.
-        m_MovementInputValue = 0f;
-        m_TurnInputValue = 0f;
-    }
-
 
     private void OnDisable()
     {
