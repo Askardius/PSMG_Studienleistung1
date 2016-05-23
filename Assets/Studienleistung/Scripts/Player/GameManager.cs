@@ -3,11 +3,11 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
-    /*    private Door[] doors;
+    //    private Door[] doors;
 
         // UI
         private bool isShowingOpenerButton = false;
-        private Door selectedDoor;
+  //      private Door selectedDoor;
 
         private GUIStyle styleLPs;
         private GUIStyle styleWon;
@@ -17,8 +17,8 @@ public class GameManager : MonoBehaviour
         void Start()
         {
             PlayerManager.OnPlayerHealthChanged += OnPlayerHealthChanged;
-            VictoryTrigger.OnGameWon += OnGameWon;
-            doors = gameObject.GetComponentsInChildren<Door>();
+         //   VictoryTrigger.OnGameWon += OnGameWon;
+         //   doors = gameObject.GetComponentsInChildren<Door>();
 
             styleLPs = new GUIStyle();
             styleLPs.normal.textColor = Color.gray;
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
             styleWon.normal.textColor = Color.red;
             styleWon.fontSize = 40;
         }
-
+    /*
         void FixedUpdate()
         {
             Debug.Log("main camera " + Camera.current);
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
         //
         //
         // Player Callbacks
-
+*/
         private void OnPlayerHealthChanged(int newVal)
         {
             Debug.Log("Player Health Changed to " + newVal);
@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
                 GameObject.Find("Player").GetComponent<PlayerManager>().Respawn();
             }
         }
-
+    /*
         private void OnGameWon()
         {
             Debug.Log("Won");
