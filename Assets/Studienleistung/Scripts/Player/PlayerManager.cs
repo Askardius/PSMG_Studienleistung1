@@ -1,27 +1,26 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-// Manager class for Player Figure
+
 public class PlayerManager : MonoBehaviour
 {
     // public vars
     public float movementSpeed;
     public float turnSpeed;
 
-    public const int MAX_LIFE_POINTS = 100;
-    public const int MEDIUM_LIFE_POINTS = 50;
-    public const int CRIT_LIFE_POINTS = 20;
 
-    private int mLifePoints;
-    public int lifePoints
+    public const int HEALTH_HIGH = 100;
+    public const int HEALTH_LOW = 20;
+
+    private int m_LifePoints;
+    public int health
     {
         get
         {
-            return mLifePoints;
+            return m_LifePoints;
         }
         set
         {
-            mLifePoints = value;
+            m_LifePoints = value;
             OnPlayerHealthChanged(value);
         }
     }
@@ -29,7 +28,7 @@ public class PlayerManager : MonoBehaviour
     private Vector3 startPosition;
 
     // modules
-    private PlayerInputManager m_playerInputManager;
+    private PlayerMove m_playerMove;
 
     // delegates
     public delegate void PlayerEvent(int val);
@@ -41,18 +40,18 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         startPosition = gameObject.transform.position;
-        m_playerInputManager = gameObject.AddComponent<PlayerInputManager>();
-        lifePoints = MAX_LIFE_POINTS;
+        m_playerMove = gameObject.AddComponent<PlayerMove>();
+        health = HEALTH_HIGH;
+
     }
 
     // respawn player
     public void Respawn()
     {
-        m_playerInputManager.SetPlayerToPosition(startPosition);
-        lifePoints = MAX_LIFE_POINTS;
+        m_playerMove.SetPlayerToPosition(startPosition);
+        health = HEALTH_HIGH;
     }
 
-    // Getters
     public float GetMovementSpeed()
     {
         return movementSpeed;
@@ -62,4 +61,6 @@ public class PlayerManager : MonoBehaviour
     {
         return turnSpeed;
     }
+
+    
 }
