@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
     private string m_TurnAxisName;              // The name of the input axis for turning.
     private Rigidbody m_Rigidbody;              // Reference used to move the tank.
     private PlayerManager m_pManager;           // The Manager for the Tank
+    public GameManager m_GameManager;           // The Game Manager
     private float m_MovementInputValue;         // The current value of the movement input.
     private float m_TurnInputValue;             // The current value of the turn input.
     private float m_currentSpeed;                 // The current Speed of the Player
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour {
         Debug.Log("Awake");
         m_Rigidbody = GetComponent<Rigidbody>();
         m_pManager = new PlayerManager();
+        m_GameManager = new GameManager();
                 
     }
 

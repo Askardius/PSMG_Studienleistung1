@@ -56,6 +56,14 @@ public class PlayerManager : MonoBehaviour
 
     }
 
+    public bool isDead(int health)
+    {
+        if (health <= 0)
+        {
+            return true;
+        }
+        return false;
+    }
 
 }
 

@@ -3,41 +3,45 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
-	private Door[] doors;
+    private Door[] doors;
+    
+    // UI
+    private bool isShowingOpenerButton = false;
+    private Door selectedDoor;
 
-	// UI
-	private bool isShowingOpenerButton = false;
-	private Door selectedDoor;
+    private GUIStyle styleLPs;
+    private GUIStyle styleWon;
 
-	private GUIStyle styleLPs;
-	private GUIStyle styleWon;
+    private bool isGameWon = false;
 
-	private bool isGameWon = false;
+    void Start()
+    {
+        
+        VictoryTrigger.OnGameWon += OnGameWon;
+        doors = gameObject.GetComponentsInChildren<Door>();
 
-	void Start ()
-	{
-	//	PlayerManager.OnPlayerHealthChanged += OnPlayerHealthChanged;
-		VictoryTrigger.OnGameWon += OnGameWon;
-		doors = gameObject.GetComponentsInChildren<Door> ();
+        styleLPs = new GUIStyle();
+        styleLPs.normal.textColor = Color.gray;
 
-		styleLPs = new GUIStyle ();
-		styleLPs.normal.textColor = Color.gray;
+        styleWon = new GUIStyle();
+        styleWon.normal.textColor = Color.red;
+        styleWon.fontSize = 40;
+    }
 
-		styleWon = new GUIStyle ();
-		styleWon.normal.textColor = Color.red;
-		styleWon.fontSize = 40;
-	}
+    void FixedUpdate()
+    {
+        Debug.Log("main camera " + Camera.current);
 
-	void FixedUpdate ()
-	{
-		Debug.Log ("main camera " + Camera.current);
+        foreach (Door door in doors) {
+            door.Refresh();
+        }
+    }
 
-		foreach (Door door in doors) {
-			door.Refresh ();
-		}
-	}
+   
 
-	void OnGUI ()
+
+
+    void OnGUI ()
 	{
 		PlayerManager player = GameObject.Find ("Player").GetComponent <PlayerManager> ();
 
