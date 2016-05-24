@@ -3,19 +3,24 @@ using System.Collections;
 
 public class BombTrigger : MonoBehaviour
 {
-	public int bombDamage = 20;
+	
 
 	void OnTriggerEnter (Collider other)
 	{
-		PlayerManager Player = other.gameObject.GetComponent<PlayerManager> ();
-		Debug.Log ("Player = " + Player );
+		PlayerManager Player = GameObject.Find ("Player").GetComponent<PlayerManager>();
+		GameManager Game = GameObject.Find ("root").GetComponent<GameManager>();
+
+		int bombDamage = 20;
 		if (Player != null) {
 			Player.currentHealth -= bombDamage;
-			Debug.Log ("BOOOOOM");
-			Debug.Log (Player.currentHealth);
 			if (Player.isDead(Player.currentHealth)) {
-				Player.Respawn();
+				Game.ResetGame();
 			}
+			if (Player.currentHealth <= 40) {
+				Player.currentSpeed = 2;
+				Debug.Log("Speed Down");
+			}
+
 			SetActive (false);
 		}
 	}

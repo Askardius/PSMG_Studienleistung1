@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
 
     private void Awake()
     {
-        Debug.Log("Awake");
+        
         m_Rigidbody = GetComponent<Rigidbody>();
 		m_pManager = gameObject.AddComponent<PlayerManager>();
         m_GameManager = gameObject.AddComponent<GameManager>();
@@ -70,10 +70,7 @@ public class PlayerController : MonoBehaviour {
     {
         float healthFactor = 1.0f;
         m_currentSpeed = m_pManager.currentSpeed;
-        if (m_pManager.isHurt()) {
-            healthFactor = .5f;
-            Debug.Log("OMG i´m hurt!");
-        }
+
         // Create a vector in the direction the tank is facing with a magnitude based on the input, speed and the time between frames.
         Vector3 movement = transform.forward * m_MovementInputValue * m_currentSpeed * Time.deltaTime * healthFactor;
 
@@ -96,7 +93,6 @@ public class PlayerController : MonoBehaviour {
 
 	public void SetPlayerToPosition (Vector3 newPosition)
 	{
-		Debug.Log ("Set player to new position");
 		gameObject.transform.position = newPosition;
 	}
 

@@ -2,14 +2,16 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 3
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Flags Green
   m_Shader: {fileID: 3, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: []
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
   m_CustomRenderQueue: -1
+  stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
@@ -38,17 +40,17 @@ Material:
       data:
         first:
           name: _Shininess
-        second: .294838518
+        second: 0.29483852
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: .544117689, g: .544117689, b: .544117689, a: 1}
+        second: {r: 0.5441177, g: 0.5441177, b: 0.5441177, a: 1}
       data:
         first:
           name: _SpecColor
-        second: {r: .382352948, g: .382352948, b: .382352948, a: 1}
+        second: {r: 0.38235295, g: 0.38235295, b: 0.38235295, a: 1}
       data:
         first:
           name: _ReflectColor
-        second: {r: .286764681, g: .286764681, b: .286764681, a: .501960814}
+        second: {r: 0.28676468, g: 0.28676468, b: 0.28676468, a: 0.5019608}

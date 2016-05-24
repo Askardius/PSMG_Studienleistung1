@@ -28,7 +28,7 @@ public class DoorTrigger : MonoBehaviour{
 
 		// if colliding object is player
 		if (other.gameObject.GetComponent<PlayerManager> () != null && !m_door.isOpen) {
-            Debug.Log("enter " + other);
+            
             
 
 			gManager.ShowDoorOpenButton (m_door);
@@ -37,7 +37,7 @@ public class DoorTrigger : MonoBehaviour{
 
 	void OnTriggerExit (Collider other)
 	{
-		Debug.Log ("leave " + other);
+		
          GameObject.Find ("root").GetComponent<GameManager> ().HideDoorOpenButton ();
 	}
 }

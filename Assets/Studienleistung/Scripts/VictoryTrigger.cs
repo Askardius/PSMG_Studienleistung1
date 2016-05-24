@@ -3,13 +3,11 @@ using System.Collections;
 
 public class VictoryTrigger : MonoBehaviour
 {
-	public delegate void VictoryEvent ();
-	public static event VictoryEvent OnGameWon;
-
-    public GameManager GlobalManager = new GameManager();
+	GameManager Game; 
 
 	void OnTriggerEnter ()
 	{
-		OnGameWon ();
+		Game = GameObject.Find ("root").GetComponent<GameManager>();
+		Game.youWin();
 	}
 }

@@ -32,7 +32,6 @@ public class Door : MonoBehaviour
 	public void Refresh ()
 	{
 		if (m_isOpen && gameObject.transform.position.y > yOpen) {
-			Debug.Log (gameObject.GetInstanceID () + " open door");
 			gameObject.transform.Translate (0f, - doorSpeed * Time.deltaTime, 0f);
 		}
 

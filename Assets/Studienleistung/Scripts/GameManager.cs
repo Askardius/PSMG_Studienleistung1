@@ -17,12 +17,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         
-        VictoryTrigger.OnGameWon += OnGameWon;
+        
         doors = gameObject.GetComponentsInChildren<Door>();
 
         styleLPs = new GUIStyle();
-        styleLPs.normal.textColor = Color.gray;
-
+		styleLPs.normal.textColor = Color.red;
+		styleLPs.fontSize = 30;
         styleWon = new GUIStyle();
         styleWon.normal.textColor = Color.red;
         styleWon.fontSize = 40;
@@ -39,12 +39,12 @@ public class GameManager : MonoBehaviour
 
 
 
-    void OnGUI ()
+    public void OnGUI ()
 	{
 		PlayerManager player = GameObject.Find ("Player").GetComponent <PlayerManager> ();
 
 		string text = "LP: " + player.currentHealth + "/" + PlayerManager.HEALTH_HIGH;
-		GUI.Label (new Rect (10, 10, 100, 100), text, styleLPs);
+		GUI.Label (new Rect (30, 30, 100, 100), text, styleLPs);
 
 		// occasionally show opener button
 		if (isShowingOpenerButton) {
@@ -56,22 +56,10 @@ public class GameManager : MonoBehaviour
 		if (isGameWon) {
 			GUI.Label (new Rect (Screen.width / 2 - 100 / 2, Screen.height / 2 + 100 / 2, 100, 100), "YOU WON!", styleWon);
 		}
+
 	}
 
-	//
-	//
-	// Player Callbacks
-
-	private void OnPlayerHealthChanged (int newVal)
-	{
-		Debug.Log ("Player Health Changed to " + newVal);
-		if (newVal < 0) {
-			Debug.Log ("Respawn");
-			GameObject.Find ("Player").GetComponent<PlayerManager> ().Respawn ();
-		}
-	}
-
-	private void OnGameWon ()
+	public void youWin ()
 	{
 		Debug.Log ("Won");
 		isGameWon = true;
