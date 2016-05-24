@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
 		Debug.Log ("Player Health Changed to " + newVal);
 		if (newVal < 0) {
 			Debug.Log ("Respawn");
-			//GameObject.Find ("Player").GetComponent<PlayerManager> ().Respawn ();
+			GameObject.Find ("Player").GetComponent<PlayerManager> ().Respawn ();
 		}
 	}
 
@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
 	{
 		Debug.Log ("Reset");
 		isGameWon = false;
-	//	GameObject.Find ("Player").GetComponent <PlayerManager> ().Respawn ();
+		GameObject.Find ("Player").GetComponent <PlayerManager> ().Respawn ();
 
 		foreach (BombTrigger bomb in gameObject.GetComponentsInChildren<BombTrigger>()) {
 			bomb.SetActive (true);

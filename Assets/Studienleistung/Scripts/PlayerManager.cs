@@ -5,10 +5,11 @@ using System.Collections;
 public class PlayerManager : MonoBehaviour
 {
 	// public vars          
-	public float Speed = 9;              //Current Speed 
+	public float Speed;                   //Current Speed 
     public float turnSpeed;               //Current Turn
     public float Position;                //Current Position
     public int currentHealth;             //Current health 
+	public Vector3 start;				  //Start Position
 
     //All variables for health
 	public const int HEALTH_HIGH = 100;
@@ -33,14 +34,15 @@ public class PlayerManager : MonoBehaviour
     public PlayerManager()
     {
         currentHealth = HEALTH_START;
-        Speed = 10;
+        Speed = 9;
         turnSpeed = 180f;
+		start = gameObject.transform.position;
 
     }
 
     void Start()
     {
-        Debug.Log("Start Manager");
+
         
         
     }
@@ -65,27 +67,13 @@ public class PlayerManager : MonoBehaviour
         return false;
     }
 
-}
-
-
-
-// modules
-
-// delegates
-//  public delegate void PlayerEvent (int val);
-//public static event PlayerEvent OnPlayerHealthChanged;
-
-
-
-// initialize
-
 
 // respawn player
-//public void Respawn ()
-//{
-//	m_playerInputManager.SetPlayerToPosition (startPosition);
-//currentHealth = MAX_LIFE_POINTS;
-//}
+public void Respawn ()
+	{
+	PlayerController.SetPlayerToPosition (start);
+	currentHealth = HEALTH_START;
+	}
 
 
-//}
+}

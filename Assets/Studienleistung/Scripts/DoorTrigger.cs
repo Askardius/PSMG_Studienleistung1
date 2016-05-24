@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DoorTrigger : MonoBehaviour
-{
+	
+public class DoorTrigger : MonoBehaviour{
 	Door m_door;
 	GameManager gManager;
 	GameObject root;
 
-	void Start ()
+	void Awake()
 	{
-		Debug.Log ("Trigger Start");
 		m_door = gameObject.transform.parent.GetComponentInChildren<Door> ();
 		root = GameObject.Find ("root");
 		gManager = root.GetComponent<GameManager> ();
@@ -42,3 +41,4 @@ public class DoorTrigger : MonoBehaviour
          GameObject.Find ("root").GetComponent<GameManager> ().HideDoorOpenButton ();
 	}
 }
+

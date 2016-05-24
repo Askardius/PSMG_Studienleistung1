@@ -20,7 +20,7 @@ public class Door : MonoBehaviour
 	public void Open ()
 	{
 		m_isOpen = true;
-		GameObject.Find ("Root").GetComponent<GameManager> ().HideDoorOpenButton ();
+		GameObject.Find ("root").GetComponent<GameManager> ().HideDoorOpenButton ();
 	}
 
 	public void Close ()
@@ -36,10 +36,5 @@ public class Door : MonoBehaviour
 			gameObject.transform.Translate (0f, - doorSpeed * Time.deltaTime, 0f);
 		}
 
-		// script for closing door again (animated)
-		/*else if (!isOpen && gameObject.transform.position.y < yClosed) {
-			gameObject.transform.Translate (0f, doorSpeed * Time.deltaTime, 0f);
-			Debug.Log (gameObject.GetInstanceID () + " close door");
-		}*/
-	}
+}
 }

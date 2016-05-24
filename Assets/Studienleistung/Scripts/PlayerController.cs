@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour {
         m_Rigidbody = GetComponent<Rigidbody>();
 		m_pManager = gameObject.AddComponent<PlayerManager>();
         m_GameManager = gameObject.AddComponent<GameManager>();
+		Debug.Log("Game Manager in Player controler " + m_GameManager );
                 
     }
 
@@ -92,4 +93,11 @@ public class PlayerController : MonoBehaviour {
         // Apply this rotation to the rigidbody's rotation.
         m_Rigidbody.MoveRotation(m_Rigidbody.rotation * turnRotation);
     }
+
+	public void SetPlayerToPosition (Vector3 newPosition)
+	{
+		Debug.Log ("Set player to new position");
+		gameObject.transform.position = newPosition;
+	}
+
 }
