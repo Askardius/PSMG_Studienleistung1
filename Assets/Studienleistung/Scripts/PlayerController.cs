@@ -18,8 +18,8 @@ public class PlayerController : MonoBehaviour {
     {
         Debug.Log("Awake");
         m_Rigidbody = GetComponent<Rigidbody>();
-        m_pManager = new PlayerManager();
-        m_GameManager = new GameManager();
+		m_pManager = gameObject.AddComponent<PlayerManager>();
+        m_GameManager = gameObject.AddComponent<GameManager>();
                 
     }
 

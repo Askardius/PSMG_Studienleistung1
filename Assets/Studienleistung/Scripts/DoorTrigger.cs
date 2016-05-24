@@ -4,11 +4,23 @@ using System.Collections;
 public class DoorTrigger : MonoBehaviour
 {
 	Door m_door;
+	GameManager gManager;
+	GameObject root;
 
 	void Start ()
 	{
+		Debug.Log ("Trigger Start");
 		m_door = gameObject.transform.parent.GetComponentInChildren<Door> ();
+		root = GameObject.Find ("root");
+		gManager = root.GetComponent<GameManager> ();
+
 	}
+		
+	
+		
+		
+		
+
 
 	// Use this for initialization
 	void OnTriggerEnter (Collider other)
@@ -18,11 +30,9 @@ public class DoorTrigger : MonoBehaviour
 		// if colliding object is player
 		if (other.gameObject.GetComponent<PlayerManager> () != null && !m_door.isOpen) {
             Debug.Log("enter " + other);
-            GameObject root = GameObject.Find ("root");
+            
 
-			root.GetComponent<GameManager> ().ShowDoorOpenButton (m_door);
-			// play 'bing'
-			root.GetComponent<AudioSource> ().Play ();
+			gManager.ShowDoorOpenButton (m_door);
 		}
 	}
 

@@ -30,8 +30,6 @@ public class GameManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log("main camera " + Camera.current);
-
         foreach (Door door in doors) {
             door.Refresh();
         }
